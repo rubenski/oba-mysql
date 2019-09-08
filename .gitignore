@@ -38,3 +38,5 @@ logs/
 
 ### token used for pulling code from Github in Docker test stage ###
 github.token
+
+pw

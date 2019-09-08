@@ -7,6 +7,8 @@ CREATE TABLE `bank`
     created            datetime                         NOT NULL,
     name               varchar(36)                      NOT NULL,
     supported_services varchar(255)                     NOT NULL,
+    maintenance_from   datetime                         NULL,
+    maintenance_to     datetime                         NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
