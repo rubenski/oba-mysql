@@ -1,19 +1,20 @@
 USE oba;
-DROP TABLE IF EXISTS oba.api_client_bank_security_properties;
+DROP TABLE IF EXISTS oba.bank_api_onboarding;
 
 CREATE TABLE application_bank_onboarding
 (
-    id                          smallint UNSIGNED AUTO_INCREMENT NOT NULL,
-    application_id              char(36)                         NOT NULL,
-    bank_security_properties_id smallint UNSIGNED                NOT NULL,
-    organisation_signing_key_id smallint UNSIGNED                NULL,
-    customer_tls_certificate_id smallint UNSIGNED                NULL,
-    secrets_enc                 text                             NULL,
-    enabled                     boolean                          NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (bank_security_properties_id) REFERENCES bank_security_properties (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (organisation_signing_key_id) REFERENCES organisation_certificate (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (customer_tls_certificate_id) REFERENCES organisation_certificate (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    id                              char(36) NOT NULL,
+    application_id                  char(36) NOT NULL,
+    bank_api_id                     char(36) NOT NULL,
+    organization_signing_key_id     char(36) NULL,
+    organization_tls_certificate_id char(36) NULL,
+    secrets_enc                     text     NULL,
+    enabled                         boolean  NOT NULL DEFAULT FALSE,
+    FOREIGN KEY (bank_api_id) REFERENCES bank_api (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (organization_signing_key_id) REFERENCES organization_private_key (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (organization_tls_certificate_id) REFERENCES organization_certificate (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (application_id) REFERENCES application (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    UNIQUE (application_id, bank_api_id),
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

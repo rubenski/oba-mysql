@@ -6,6 +6,7 @@ CREATE TABLE `bank_connection`
     id                  int UNSIGNED AUTO_INCREMENT NOT NULL,
     type                varchar(20)                 NOT NULL,
     application_user_id int UNSIGNED                NOT NULL,
+    bank_id             char(36)                    NOT NULL,
     status              varchar(20)                 NOT NULL,
     created             datetime                    NOT NULL,
     last_updated        datetime                    NOT NULL,
