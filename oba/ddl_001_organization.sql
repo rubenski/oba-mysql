@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS oba.client;
 
 CREATE TABLE `organization`
 (
-    id      char(36) NOT NULL,
+    id      binary(16) NOT NULL,
     created datetime NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB

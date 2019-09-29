@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS oba.client;
 
 CREATE TABLE `application`
 (
-    id                                char(36)     NOT NULL,
-    organization_id                   char(36)     NOT NULL,
+    id                                binary(16)     NOT NULL,
+    organization_id                   binary(16)    NOT NULL,
     name                              varchar(30)  NOT NULL,
     nr_of_automated_refreshes_per_day smallint     NOT NULL,
     account_types                     varchar(255) NULL,

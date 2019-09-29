@@ -3,10 +3,10 @@ DROP TABLE IF EXISTS oba.application_user_session;
 
 CREATE TABLE application_user_session
 (
-    id                  int UNSIGNED AUTO_INCREMENT NOT NULL,
-    application_user_id int UNSIGNED                NOT NULL,
-    state_param         char(36)                    NULL,
-    created             datetime                    NOT NULL,
+    id                  binary(16) NOT NULL,
+    application_user_id binary(16) NOT NULL,
+    state_param         char(36)   NULL,
+    created             datetime   NOT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY (application_user_id) REFERENCES application_user (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB

@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS oba.bank_api;
 
 CREATE TABLE bank_api
 (
-    id                        char(36)     NOT NULL,
-    bank_id                   char(36)     NOT NULL,
+    id                        binary(16)   NOT NULL,
+    bank_id                   binary(16)   NOT NULL,
     base_url                  varchar(255) NOT NULL,
     secrets_definition        text         NOT NULL,
     request_signing_used      boolean      NOT NULL,

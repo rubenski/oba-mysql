@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS oba.organization_private_key;
 
 CREATE TABLE organization_private_key
 (
-    id                    char(36)     NOT NULL,
-    organization_id       char(36)     NOT NULL,
+    id                    binary(16)   NOT NULL,
+    organization_id       binary(16)   NOT NULL,
     name                  varchar(100) NOT NULL,
     description           varchar(255) NULL,
     key_purpose           varchar(10)  NOT NULL,

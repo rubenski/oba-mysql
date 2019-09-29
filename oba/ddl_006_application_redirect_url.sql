@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS oba.client;
 
 CREATE TABLE application_redirect_url
 (
-    id             char(36)     NOT NULL,
-    application_id char(36)     NOT NULL,
+    id             binary(16)   NOT NULL,
+    application_id binary(16)   NOT NULL,
     name           varchar(30)  NOT NULL,
     description    varchar(30)  NULL,
     redirect_url   varchar(255) NOT NULL,

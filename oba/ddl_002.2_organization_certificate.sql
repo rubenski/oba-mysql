@@ -3,8 +3,8 @@ DROP TABLE IF EXISTS oba.organization_certificate;
 
 CREATE TABLE organization_certificate
 (
-    id                          char(36)     NOT NULL,
-    organization_private_key_id char(36)     NOT NULL,
+    id                          binary(16)   NOT NULL,
+    organization_private_key_id binary(16)   NOT NULL,
     name                        varchar(100) NOT NULL,
     description                 varchar(255) NULL,
     distinguished_name          varchar(255) NOT NULL,
