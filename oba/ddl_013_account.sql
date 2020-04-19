@@ -1,3 +1,4 @@
+
 USE oba;
 DROP TABLE IF EXISTS oba.account;
 
