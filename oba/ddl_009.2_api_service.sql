@@ -1,7 +1,7 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank_api_service;
+DROP TABLE IF EXISTS oba.api_service;
 
-CREATE TABLE bank_api_service
+CREATE TABLE api_service
 (
     id           binary(16) NOT NULL,
     service_name char(25)   NOT NULL,
