@@ -1,3 +1,4 @@
+use oba;
 INSERT INTO oba.organization (id, name, vat_number, street, street_number)
 VALUES (UUID_TO_BIN('6cf9e92c-28b0-11ea-978f-2e728ce88125'), 'Ruben corp', '123', 'Levantkade', '259');
 
