@@ -17,14 +17,14 @@ INSERT INTO bank_group_type(id, group_type_name) VALUES (UUID_TO_BIN('ca80cfca-a
 INSERT INTO bank_group_type(id, group_type_name) VALUES (UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'BANKING_GROUP');
 
 # Service types
-INSERT INTO api_service(system_name, display_name) values ('pis', 'Payment Initiation Services (PIS)');
-INSERT INTO api_service(system_name, display_name) values ('ais', 'Account Information Services (AIS)');
+INSERT INTO bank_api_available_service(system_name, display_name) values ('pis', 'Payment Initiation Services (PIS)');
+INSERT INTO bank_api_available_service(system_name, display_name) values ('ais', 'Account Information Services (AIS)');
 
 # Sub service types
-INSERT INTO api_subservice(system_name, display_name, api_service_system_name) values ('single-sepa', 'Single SEPA payments', 'pis');
-INSERT INTO api_subservice(system_name, display_name, api_service_system_name) values ('recurring-sepa', 'Recurring SEPA payments', 'pis');
-INSERT INTO api_subservice(system_name, display_name, api_service_system_name) values ('future-dated-sepa', 'Future dated SEPA payments', 'pis');
-INSERT INTO api_subservice(system_name, display_name, api_service_system_name) values ('accounts-transaction', 'Accounts & Transactions', 'ais');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('single-sepa', 'Single SEPA payments', 'pis');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('recurring-sepa', 'Recurring SEPA payments', 'pis');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('future-dated-sepa', 'Future dated SEPA payments', 'pis');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('accounts-transaction', 'Accounts & Transactions', 'ais');
 
 # Bank to group assignment
 INSERT INTO bank_2_group_type(bank_system_name, group_type_id, group_name)
@@ -33,18 +33,18 @@ VALUES ('asn-bank-nl', UUID_TO_BIN('ca80cdb8-a8cb-11ea-bb37-0242ac130002'), 'Reg
 # Bank APIs
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'rabobank', 'https://api.rabobank.nl', true,  'RSA_2048', true, true);
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'pis');
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'ais');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'pis');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'ais');
 
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'asn-bank-nl', 'https://api.regiobank.nl', true,  'RSA_2048', true, true);
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'pis');
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'ais');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'pis');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'ais');
 
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'sns-bank-nl', 'https://api.regiobank.nl', true,  'RSA_2048', true, true);
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'pis');
-INSERT INTO bank_api_2_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'ais');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'pis');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'ais');
 
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d4fc-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'regiobank-nl', 'https://api.regiobank.nl', true, 'RSA_2048', true, true);
