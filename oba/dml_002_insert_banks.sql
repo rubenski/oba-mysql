@@ -24,7 +24,9 @@ INSERT INTO bank_api_available_service(system_name, display_name) values ('ais',
 INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('single-sepa', 'Single SEPA payments', 'pis');
 INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('recurring-sepa', 'Recurring SEPA payments', 'pis');
 INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('future-dated-sepa', 'Future dated SEPA payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('accounts-transaction', 'Accounts & Transactions', 'ais');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('recurring-international', 'Future dated international payments', 'pis');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('future-dated-international', 'Future dated international payments', 'pis');
+INSERT INTO bank_api_subservice(system_name, display_name, parent_available_service) values ('accounts-transactions', 'Accounts & Transactions', 'ais');
 
 # Bank to group assignment
 INSERT INTO bank_2_group_type(bank_system_name, group_type_id, group_name)
@@ -48,8 +50,19 @@ INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) V
 
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d4fc-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'regiobank-nl', 'https://api.regiobank.nl', true, 'RSA_2048', true, true);
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d4fc-a8cb-11ea-bb37-0242ac130002'), 'pis');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d4fc-a8cb-11ea-bb37-0242ac130002'), 'ais');
 
 INSERT INTO bank_api(id, type, bank_system_name, base_url, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox) VALUES
 (UUID_TO_BIN('ca80d5ba-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'ing-bank-nl', 'https://api.ing.nl', true, 'RSA_2048', true, true);
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d5ba-a8cb-11ea-bb37-0242ac130002'), 'pis');
+INSERT INTO bank_api_2_available_service(bank_api_id, api_service_system_name) VALUES (UUID_TO_BIN('ca80d5ba-a8cb-11ea-bb37-0242ac130002'), 'ais');
 
+# Bank API to subservice - this indicates which subservices from the available API have been implemented by OBA
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'accounts-transactions');
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'single-sepa');
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d362-a8cb-11ea-bb37-0242ac130002'), 'accounts-transactions');
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d434-a8cb-11ea-bb37-0242ac130002'), 'accounts-transactions');
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d4fc-a8cb-11ea-bb37-0242ac130002'), 'accounts-transactions');
+INSERT INTO bank_api_2_subservice (bank_api_id, subservice_system_name) VALUES (UUID_TO_BIN('ca80d5ba-a8cb-11ea-bb37-0242ac130002'), 'accounts-transactions');
 

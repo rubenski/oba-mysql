@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS oba.bank_api_available_service;
 
 CREATE TABLE bank_api_available_service
 (
-    system_name  char(30) NOT NULL,
+    system_name  char(50) NOT NULL,
     display_name char(50) NOT NULL,
     PRIMARY KEY (system_name)
 ) ENGINE = InnoDB
