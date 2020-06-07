@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS oba.bank_api;
 CREATE TABLE bank_api
 (
     id                        binary(16)   NOT NULL,
+    type                      char(30)     NOT NULL,
     bank_system_name          char(30)     NOT NULL,
     base_url                  varchar(255) NOT NULL,
     request_signing_used      boolean      NOT NULL,
