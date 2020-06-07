@@ -8,6 +8,7 @@ CREATE TABLE `bank`
     implementation_key varchar(50) NOT NULL,
     maintenance_from   datetime    NULL,
     maintenance_to     datetime    NULL,
+    beta               boolean     NULL,
     UNIQUE (display_name),
     PRIMARY KEY (system_name)
 ) ENGINE = InnoDB
