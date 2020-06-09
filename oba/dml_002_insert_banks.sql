@@ -17,16 +17,16 @@ INSERT INTO bank_group_type(id, group_type_name) VALUES (UUID_TO_BIN('ca80cfca-a
 INSERT INTO bank_group_type(id, group_type_name) VALUES (UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'BANKING_GROUP');
 
 # Service types
-INSERT INTO bank_api_main_service(system_name, display_name) values ('pis', 'Payment Initiation Services (PIS)');
-INSERT INTO bank_api_main_service(system_name, display_name) values ('ais', 'Account Information Services (AIS)');
+INSERT INTO main_service(system_name, display_name) values ('pis', 'Payment Initiation Services (PIS)');
+INSERT INTO main_service(system_name, display_name) values ('ais', 'Account Information Services (AIS)');
 
 # Sub service types
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('single-sepa', 'Single SEPA payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('recurring-sepa', 'Recurring SEPA payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('future-dated-sepa', 'Future dated SEPA payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('recurring-international', 'Future dated international payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('future-dated-international', 'Future dated international payments', 'pis');
-INSERT INTO bank_api_subservice(system_name, display_name, parent_main_service) values ('accounts-transactions', 'Accounts & Transactions', 'ais');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('single-sepa', 'Single SEPA payments', 'pis');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('recurring-sepa', 'Recurring SEPA payments', 'pis');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('future-dated-sepa', 'Future dated SEPA payments', 'pis');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('recurring-international', 'Future dated international payments', 'pis');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('future-dated-international', 'Future dated international payments', 'pis');
+INSERT INTO subservice(system_name, display_name, parent_main_service) values ('accounts-transactions', 'Accounts & Transactions', 'ais');
 
 # Bank to group assignment
 INSERT INTO bank_2_group_type(bank_system_name, group_type_id, group_name)

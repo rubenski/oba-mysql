@@ -1,8 +1,8 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank_api_main_service;
+DROP TABLE IF EXISTS oba.main_service;
 DROP TABLE IF EXISTS oba.bank_api_available_service;
 
-CREATE TABLE bank_api_main_service
+CREATE TABLE main_service
 (
     system_name  char(50) NOT NULL,
     display_name char(50) NOT NULL,
