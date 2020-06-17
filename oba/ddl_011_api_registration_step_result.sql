@@ -1,20 +1,19 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank_registration;
+DROP TABLE IF EXISTS oba.api_registration_step_result;
 
-CREATE TABLE bank_registration
+CREATE TABLE api_registration_step_result
 (
     id                                  binary(16) NOT NULL,
     organization_id                     binary(16) NOT NULL,
-    bank_api_id                         binary(16) NOT NULL,
+    api_id                              binary(16) NOT NULL,
+    step_nr                             tinyint    NOT NULL,
     organization_signing_certificate_id binary(16) NULL,
     organization_tls_certificate_id     binary(16) NULL,
-    secrets_enc                         text       NULL,
-    enabled                             boolean    NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (bank_api_id) REFERENCES bank_api (id) ON UPDATE CASCADE ON DELETE CASCADE,
+    field_values                        text       NULL,
+    success                             boolean    NOT NULL,
+    created                             datetime   NOT NULL,
     FOREIGN KEY (organization_signing_certificate_id) REFERENCES organization_certificate (id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (organization_tls_certificate_id) REFERENCES organization_certificate (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (organization_id) REFERENCES organization (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    UNIQUE (organization_id, bank_api_id),
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

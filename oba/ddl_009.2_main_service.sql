@@ -1,6 +1,5 @@
 USE oba;
 DROP TABLE IF EXISTS oba.main_service;
-DROP TABLE IF EXISTS oba.bank_api_available_service;
 
 CREATE TABLE main_service
 (

@@ -1,13 +1,13 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank_api_2_subservice;
+DROP TABLE IF EXISTS oba.api_2_subservice;
 
 # Shows which subservices for a bank have been implemented
-CREATE TABLE bank_api_2_subservice
+CREATE TABLE api_2_subservice
 (
-    bank_api_id            binary(16) NOT NULL,
+    api_id            binary(16) NOT NULL,
     subservice_system_name char(50)   NOT NULL,
-    PRIMARY KEY (bank_api_id, subservice_system_name),
-    FOREIGN KEY (bank_api_id) REFERENCES bank_api (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (api_id, subservice_system_name),
+    FOREIGN KEY (api_id) REFERENCES api (id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (subservice_system_name) REFERENCES subservice (system_name) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4

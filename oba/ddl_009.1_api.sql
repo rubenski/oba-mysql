@@ -1,7 +1,7 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank_api;
+DROP TABLE IF EXISTS oba.api;
 
-CREATE TABLE bank_api
+CREATE TABLE api
 (
     id                        binary(16)   NOT NULL,
     type                      char(30)     NOT NULL,
@@ -11,6 +11,7 @@ CREATE TABLE bank_api
     request_signing_algorithm varchar(20)  NOT NULL,
     mutual_tls_used           boolean      NOT NULL,
     is_sandbox                boolean      NOT NULL,
+    beta                      boolean      NOT NULL DEFAULT FALSE,
     FOREIGN KEY (bank_system_name) REFERENCES bank (system_name) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
