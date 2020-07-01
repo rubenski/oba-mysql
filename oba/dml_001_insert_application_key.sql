@@ -2,10 +2,9 @@ use oba;
 INSERT INTO oba.organization (id, name, vat_number, street, street_number)
 VALUES (UUID_TO_BIN('6cf9e92c-28b0-11ea-978f-2e728ce88125'), 'Ruben corp', '123', 'Levantkade', '259');
 
-INSERT INTO oba.application (id, organization_id, name, technical_contact_name, technical_contact_email,
-                             administrative_contact_name, administrative_contact_email)
+INSERT INTO oba.application (id, organization_id, name, technical_contact_name, technical_contact_email)
 VALUES (UUID_TO_BIN('abe71322-28b4-11ea-978f-2e728ce88125'), UUID_TO_BIN('6cf9e92c-28b0-11ea-978f-2e728ce88125'), 'Ruben app',
-        'Ruben', 'rubenski@gmail.com', 'Ruben', 'rubenski@gmail.com');
+        'Ruben', 'rubenski@gmail.com');
 
 INSERT INTO oba.application_public_key (id, application_id, kid, public_key)
 VALUES (UUID_TO_BIN('446095ec-28b5-11ea-978f-2e728ce88125'), UUID_TO_BIN('abe71322-28b4-11ea-978f-2e728ce88125'),

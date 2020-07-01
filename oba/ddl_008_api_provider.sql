@@ -1,7 +1,7 @@
 USE oba;
-DROP TABLE IF EXISTS oba.bank;
+DROP TABLE IF EXISTS oba.api_provider;
 
-CREATE TABLE `bank`
+CREATE TABLE `api_provider`
 (
     system_name        char(30)    NOT NULL,
     display_name       varchar(50) NOT NULL,
