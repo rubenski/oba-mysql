@@ -1,7 +1,7 @@
 USE oba;
-DROP TABLE IF EXISTS oba.api_provider_group_type;
+DROP TABLE IF EXISTS oba.financial_organization_group_type;
 
-CREATE TABLE api_provider_group_type
+CREATE TABLE financial_organization_group_type
 (
     id              binary(16)  NOT NULL,
     group_type_name varchar(25) NOT NULL,
