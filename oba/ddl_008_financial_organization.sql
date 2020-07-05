@@ -5,9 +5,6 @@ CREATE TABLE `financial_organization`
 (
     system_name        char(30)    NOT NULL,
     display_name       varchar(50) NOT NULL,
-    implementation_key varchar(50) NOT NULL,
-    maintenance_from   datetime    NULL,
-    maintenance_to     datetime    NULL,
     UNIQUE (display_name),
     PRIMARY KEY (system_name)
 ) ENGINE = InnoDB
