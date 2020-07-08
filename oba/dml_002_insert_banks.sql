@@ -18,6 +18,10 @@ INSERT INTO financial_organization_group_type(id, group_type_name)
 VALUES (UUID_TO_BIN('ca80cfca-a8cb-11ea-bb37-0242ac130002'), 'REGIONAL_BANKS');
 INSERT INTO financial_organization_group_type(id, group_type_name)
 VALUES (UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'BANKING_GROUP');
+INSERT INTO financial_organization_group_type(id, group_type_name)
+VALUES (UUID_TO_BIN('22e815a6-bfba-11ea-b3de-0242ac130004'), 'SOME_OTHER_GROUP');
+INSERT INTO financial_organization_group_type(id, group_type_name)
+VALUES (UUID_TO_BIN('9b6312a4-c10b-11ea-b3de-0242ac130004'), 'COUNTRY');
 
 # Main service types
 INSERT INTO main_service(system_name, display_name)
@@ -46,12 +50,29 @@ INSERT INTO subservice(system_name, display_name, parent_main_service)
 values ('tx-enrichment-categories', 'Transactions Categories', 'transaction_enrichment');
 
 # Bank to group assignment
+
+
+
 INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
 VALUES ('asn-bank-nl', UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'Regiobank');
 INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
 VALUES ('sns-bank-nl', UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'Regiobank');
 INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
 VALUES ('regiobank-nl', UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'Regiobank');
+
+INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
+VALUES ('asn-bank-nl', UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'Regiobank');
+INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
+VALUES ('sns-bank-nl', UUID_TO_BIN('ca80d0c4-a8cb-11ea-bb37-0242ac130002'), 'Regiobank');
+
+INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
+VALUES ('sns-bank-nl', UUID_TO_BIN('22e815a6-bfba-11ea-b3de-0242ac130004'), 'Blabla');
+INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
+VALUES ('rabobank', UUID_TO_BIN('22e815a6-bfba-11ea-b3de-0242ac130004'), 'Blabla');
+
+INSERT INTO financial_organization_2_group_type(financial_organization_system_name, group_type_id, group_name)
+VALUES ('asn-bank-nl', UUID_TO_BIN('9b6312a4-c10b-11ea-b3de-0242ac130004'), 'Nederland');
+
 
 # Bank APIs
 INSERT INTO api(id, type, financial_organization_system_name, base_url, request_signing_used, request_signing_algorithm,
