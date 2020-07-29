@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS oba.connection;
 CREATE TABLE `connection`
 (
     id                               binary(16) NOT NULL,
-    api_registration_id              binary(16) NOT NULL,
+    api_registration_id              binary(16) NULL,
     country_data_provider            char(30)   NOT NULL,
     application_user_id              binary(16) NOT NULL,
     consent_valid                    boolean    NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `connection`
     auto_delete_after                char(20)   NULL,
     refresh_frequency_override       char(20)   NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (api_registration_id) REFERENCES api_registration (id) ON UPDATE CASCADE ON DELETE NO ACTION,
+    FOREIGN KEY (api_registration_id) REFERENCES api_registration (id) ON UPDATE CASCADE ON DELETE SET NULL,
     FOREIGN KEY (application_user_id) REFERENCES application_user (id) ON UPDATE CASCADE ON DELETE NO ACTION,
     FOREIGN KEY (country_data_provider) REFERENCES country_data_provider (system_name) ON UPDATE CASCADE ON DELETE NO ACTION
 ) ENGINE = InnoDB
