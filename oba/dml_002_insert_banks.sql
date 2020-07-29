@@ -3,16 +3,16 @@ use oba;
 # Apis
 
 # Rabobank
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status)
-VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'BETA');
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
+VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'BETA', false);
 
 # Volksbank
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status)
-VALUES (UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED');
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
+VALUES (UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED', false);
 
 # ING
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status)
-VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED');
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
+VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED', false);
 
 
 # Products
