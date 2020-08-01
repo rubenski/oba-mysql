@@ -6,7 +6,7 @@ CREATE TABLE oauth_consent_session
     state_id                          binary(16)   NOT NULL,
     application_user_id               binary(16)   NOT NULL,
     country_data_provider_system_name char(30)     NOT NULL,
-    pending_redirect                  varchar(255) NULL,
+    pending_redirect                  text         NULL,
     return_url                        varchar(255) NOT NULL,
     created                           datetime     NOT NULL,
     completed                         datetime     NULL,
@@ -14,7 +14,7 @@ CREATE TABLE oauth_consent_session
     session_data                      text         NULL,
     token_enc                         text         NULL,
     token_enc_iv                      text         NULL,
-    expected_token_expiration_time    datetime     NULL,
+    expected_consent_expiration_time    datetime     NULL,
     PRIMARY KEY (state_id),
     FOREIGN KEY (application_user_id) REFERENCES application_user (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB
