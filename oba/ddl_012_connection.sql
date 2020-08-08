@@ -1,6 +1,7 @@
 USE oba;
 DROP TABLE IF EXISTS oba.connection;
-
+# Api registration could be removed during the lifecycle of the connection. Therefore the
+# api_registration_id is nullable
 CREATE TABLE `connection`
 (
     id                               binary(16) NOT NULL,
