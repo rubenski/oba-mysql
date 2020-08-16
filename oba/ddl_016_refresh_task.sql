@@ -5,7 +5,8 @@ CREATE TABLE `refresh_task`
 (
     id       binary(16) NOT NULL,
     user_id  binary(16) NOT NULL,
-    finished datetime   NOT NULL,
+    finished datetime   NULL,
+    created_by char(10) NOT NULL,
     created  datetime   NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES application_user (id) ON UPDATE CASCADE ON DELETE CASCADE

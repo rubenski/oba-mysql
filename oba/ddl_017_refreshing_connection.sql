@@ -9,7 +9,7 @@ CREATE TABLE `refreshing_connection`
     id              binary(16) NOT NULL,
     refresh_task_id binary(16) NOT NULL,
     connection_id   binary(16) NULL,
-    status          char(30)   NOT NULL,
+    status          char(50)   NOT NULL,
     updated         datetime   NOT NULL,
     UNIQUE (refresh_task_id, connection_id),
     FOREIGN KEY (refresh_task_id) REFERENCES refresh_task (id) ON UPDATE CASCADE ON DELETE CASCADE,
