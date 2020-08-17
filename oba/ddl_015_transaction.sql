@@ -5,6 +5,7 @@ CREATE TABLE `transaction`
 (
     id                                binary(16)   NOT NULL,
     account_id                        binary(16)   NOT NULL,
+    bank_id                           varchar(30)  NULL,
     created                           datetime     NOT NULL,
     updated                           datetime     NOT NULL,
     amount                            int          NOT NULL,
@@ -12,7 +13,6 @@ CREATE TABLE `transaction`
     description                       varchar(255) NOT NULL,
     date                              datetime     NOT NULL,
     status                            char(30)     NOT NULL,
-    bank_id                           varchar(30)  NULL,
     counterparty_name                 varchar(100) NULL,
     counterparty_account_number       varchar(40)  NULL,
     end_to_end_id                     varchar(50)  NULL,
@@ -33,3 +33,5 @@ CREATE TABLE `transaction`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci;
+
+ALTER TABLE transaction ADD INDEX idx_transaction_bank_ix (bank_id);
