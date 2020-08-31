@@ -9,7 +9,7 @@ CREATE TABLE organization
     street        varchar(100) NULL,
     street_number varchar(10)  NULL,
     postal_code   varchar(20)  NULL,
-    country       varchar(100)  NULL,
+    country       varchar(100) NULL,
     created       datetime     NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
