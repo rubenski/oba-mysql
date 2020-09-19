@@ -19,25 +19,25 @@ where id = UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002');
 INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
                 connection_per_account, status, ais_redirects)
 VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
-        'BETA', '[\'authenticate_all\']');
+        'BETA', '[\"authenticate_all\"]');
 
 # ING
 INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
                 connection_per_account, status, ais_redirects)
 VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
-        'AVAILABLE', '[\'authenticate_all\']');
+        'AVAILABLE', '[\"authenticate_all\"]');
 
 # RedSys
 INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
                 connection_per_account, status, ais_redirects)
 VALUES (UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
-        'AVAILABLE', '[\'authenticate_with_credentials\', \'authenticate_with_mfa\']');
+        'AVAILABLE', '[\"authenticate_with_credentials\", \"authenticate_with_mfa\"]');
 
 # Abn Amro
 INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
                 connection_per_account, status, ais_redirects)
 VALUES (UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, true,
-        'AVAILABLE', '[\'authenticate_all\']');
+        'AVAILABLE', '[\"authenticate_all\"]');
 
 
 # Products
