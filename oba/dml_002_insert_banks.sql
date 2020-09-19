@@ -2,91 +2,126 @@ use oba;
 
 # Apis
 
-# Rabobank
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
-VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'BETA', false);
+update oba.api
+set ais_redirects = '[\"authenticate_with_credentials\", \"authenticate_with_mfa\"]'
+where id = UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002');
+update oba.api
+set ais_redirects = '[\"authenticate_all\"]'
+where id = UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002');
+update oba.api
+set ais_redirects = '[\"authenticate_all\"]'
+where id = UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004');
+update oba.api
+set ais_redirects = '[\"authenticate_all\"]'
+where id = UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002');
 
-# Volksbank
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
-VALUES (UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED', false);
+# Rabobank
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
+                connection_per_account, status, ais_redirects)
+VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
+        'BETA', '[\'authenticate_all\']');
 
 # ING
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
-VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED', false);
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
+                connection_per_account, status, ais_redirects)
+VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
+        'AVAILABLE', '[\'authenticate_all\']');
 
 # RedSys
-INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox, connection_per_account, status, multiple_redirects)
-VALUES (UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false, 'ENABLED', true);
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
+                connection_per_account, status, ais_redirects)
+VALUES (UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, false,
+        'AVAILABLE', '[\'authenticate_with_credentials\', \'authenticate_with_mfa\']');
+
+# Abn Amro
+INSERT INTO api(id, type, flow_type, request_signing_used, request_signing_algorithm, mutual_tls_used, is_sandbox,
+                connection_per_account, status, ais_redirects)
+VALUES (UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'PSD2', 'OAUTH', true, 'RSA_2048', true, true, true,
+        'AVAILABLE', '[\'authenticate_all\']');
 
 
 # Products
-INSERT INTO product(name) VALUES ('current_account');
-INSERT INTO product(name) VALUES ('savings_account');
-INSERT INTO product(name) VALUES ('credit_card');
-INSERT INTO product(name) VALUES ('debit_card');
-INSERT INTO product(name) VALUES ('card');
+INSERT INTO product(name)
+VALUES ('current_account');
+INSERT INTO product(name)
+VALUES ('savings_account');
+INSERT INTO product(name)
+VALUES ('credit_card');
+INSERT INTO product(name)
+VALUES ('debit_card');
+INSERT INTO product(name)
+VALUES ('card');
 
 # Apis to products
 
-# Rabobak (double check)
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'current_account');
+# Rabobank (double check)
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'current_account');
 # INSERT INTO api_2_product VALUES(UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'credit_card');
 
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'current_account');
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'credit_card');
-
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'current_account');
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'credit_card');
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'debit_card');
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'current_account');
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'credit_card');
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'debit_card');
 
 # RedSys  (supports current account only)
-INSERT INTO api_2_product VALUES(UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'current_account');
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'current_account');
+
+# Abn Amro
+INSERT INTO api_2_product
+VALUES (UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'current_account');
 
 # Country data provider
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('rabobank', 'Rabobank', UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'NLD', 'Europe/Amsterdam', 'EUR');
-
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, group_name)
-VALUES ('asn-bank', 'ASN Bank', UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam', 'EUR',
-        'Volksbank');
-
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, group_name)
-VALUES ('sns-bank', 'SNS Banks', UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam', 'EUR',
-        'Volksbank');
-
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, group_name)
-VALUES ('regiobank', 'Regiobank', UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam', 'EUR',
-        'Volksbank');
+VALUES ('nl_rabobank_sandbox', 'Rabobank', UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'NLD',
+        'Europe/Amsterdam', 'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('ing-bank-nl', 'ING Bank NL', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam', 'EUR');
+VALUES ('nl_ing_sandbox', 'ING Bank NL', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('ing-bank-fr', 'ING Bank Fr', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'FRA', 'Europe/Paris', 'EUR');
+VALUES ('fr_ing_sandbox', 'ING Bank Fr', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'FRA', 'Europe/Paris',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('sabadell-es', 'Sabadell', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_sabadell_sandbox', 'Sabadell', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('santander-es', 'Santander', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_santander_sandbox', 'Santander', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
+        'Europe/Madrid', 'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('bankia-es', 'Bankia', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_bankia_sandbox', 'Bankia', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('bbva-es', 'BBVA', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_bbva_sandbox', 'BBVA', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('selfbank-es', 'Self Bank', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_self_bank_sandbox', 'Self Bank', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
+        'Europe/Madrid', 'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('evobanco-es', 'EVO Banco', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_evobanco_sandbox', 'EVO Banco', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('caixa-es', 'Caixa', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_caixa_sandbox', 'Caixa', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
+        'EUR');
 
 INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('bankinter-es', 'Bankinter', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+VALUES ('es_bankinter_sandbox', 'Bankinter', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
+        'Europe/Madrid', 'EUR');
+
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+VALUES ('nl_abnamro_sandbox', 'ABN AMRO', UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'NLD',
+        'Europe/Amsterdam', 'EUR');
+
 
 # Main service types
 INSERT INTO main_service(system_name, display_name)
@@ -124,10 +159,6 @@ VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'single-sepa');
 INSERT INTO api_2_subservice (api_id, subservice_system_name)
 VALUES (UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'future-dated-international');
 
-# Volksbank
-INSERT INTO api_2_subservice (api_id, subservice_system_name)
-VALUES (UUID_TO_BIN('cf32581c-c2f3-11ea-b3de-0242ac130004'), 'accounts-transactions');
-
 # ING
 INSERT INTO api_2_subservice (api_id, subservice_system_name)
 VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'accounts-transactions');
@@ -136,6 +167,8 @@ VALUES (UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'accounts-transacti
 INSERT INTO api_2_subservice (api_id, subservice_system_name)
 VALUES (UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'accounts-transactions');
 
-
+# ABN AMRO
+INSERT INTO api_2_subservice (api_id, subservice_system_name)
+VALUES (UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'accounts-transactions');
 
 
