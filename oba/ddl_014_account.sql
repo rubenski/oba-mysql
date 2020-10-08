@@ -15,11 +15,12 @@ CREATE TABLE `account`
     iban                          char(30)      NULL,
     bban                          char(30)      NULL,
     masked_pan                    char(30)      NULL,
+    bic                           char(30)      NULL,
     type                          char(30)      NOT NULL,
     currency                      char(5)       NOT NULL,
     enabled                       char(5)       NULL,
     name                          varchar(150)  NOT NULL,
-    resource_id                   char(50)      NOT NULL,
+    resource_id                   char(150)      NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (connection_id) REFERENCES connection (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB

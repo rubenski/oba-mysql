@@ -5,7 +5,7 @@ CREATE TABLE `transaction`
 (
     id                                binary(16)    NOT NULL,
     account_id                        binary(16)    NOT NULL,
-    bank_id                           varchar(30)   NULL,
+    bank_id                           varchar(80)   NULL,
     created                           datetime      NOT NULL,
     updated                           datetime      NOT NULL,
     amount                            numeric(8, 2) NOT NULL,
@@ -41,4 +41,4 @@ ALTER TABLE transaction
     ADD INDEX idx_transaction_bank_id (bank_id);
 
 ALTER TABLE transaction
-    ADD INDEX idx_transaction_date (date);
+    ADD INDEX idx_transaction_date (account_id, date);
