@@ -75,52 +75,53 @@ INSERT INTO api_2_product
 VALUES (UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'current_account');
 
 # Country data provider
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('nl_rabobank_sandbox', 'Rabobank', UUID_TO_BIN('ca80d196-a8cb-11ea-bb37-0242ac130002'), 'NLD',
-        'Europe/Amsterdam', 'EUR');
+        'Europe/Amsterdam', 'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('nl_ing_sandbox', 'ING Bank NL', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'NLD', 'Europe/Amsterdam',
-        'EUR');
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('fr_ing_sandbox', 'ING Bank Fr', UUID_TO_BIN('da15593c-c2f3-11ea-b3de-0242ac130004'), 'FRA', 'Europe/Paris',
-        'EUR');
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_sabadell_sandbox', 'Sabadell', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
-        'EUR');
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_santander_sandbox', 'Santander', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
-        'Europe/Madrid', 'EUR');
+        'Europe/Madrid', 'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_bankia_sandbox', 'Bankia', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
-        'EUR');
+        'EUR', 'bank_id');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
-VALUES ('es_bbva_sandbox', 'BBVA', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid', 'EUR');
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
+VALUES ('es_bbva_sandbox', 'BBVA', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_self_bank_sandbox', 'Self Bank', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
-        'Europe/Madrid', 'EUR');
+        'Europe/Madrid', 'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_evobanco_sandbox', 'EVO Banco', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
-        'EUR');
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_caixa_sandbox', 'Caixa', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP', 'Europe/Madrid',
-        'EUR');
+        'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('es_bankinter_sandbox', 'Bankinter', UUID_TO_BIN('ba34741c-ed4c-11ea-adc1-0242ac120002'), 'ESP',
-        'Europe/Madrid', 'EUR');
+        'Europe/Madrid', 'EUR', 'counterparty_name');
 
-INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency)
+INSERT INTO country_data_provider (system_name, display_name, api_id, country, time_zone, currency, bank_preferred_description_field)
 VALUES ('nl_abnamro_sandbox', 'ABN AMRO', UUID_TO_BIN('bad77920-f2ef-11ea-adc1-0242ac120002'), 'NLD',
-        'Europe/Amsterdam', 'EUR');
+        'Europe/Amsterdam', 'EUR', 'counterparty_name');
 
 
 # Main service types

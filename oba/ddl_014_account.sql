@@ -20,7 +20,9 @@ CREATE TABLE `account`
     currency                      char(5)       NOT NULL,
     enabled                       char(5)       NULL,
     name                          varchar(150)  NOT NULL,
-    resource_id                   char(150)      NOT NULL,
+    owner_name                    varchar(150)  NULL,
+    product                       varchar(50)   NULL,
+    resource_id                   char(150)     NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (connection_id) REFERENCES connection (id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE = InnoDB
